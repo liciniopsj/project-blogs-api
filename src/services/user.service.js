@@ -8,9 +8,25 @@ const getUserByEmail = async (email) => {
   return data;
 };
 
+const getAllUsers = async () => {
+  const data = await User.findAll({ attributes: ['id', 'displayName', 'email', 'image'] });
+  return data;
+};
+
+const getUserById = async (id) => {
+  const data = User.findOne({
+    attributes: ['id', 'displayName', 'email', 'image'],
+    where: { id },
+  });
+
+  return data;
+};
+
 const userService = {
   newUser,
   getUserByEmail,
+  getAllUsers,
+  getUserById,
 };
 
 module.exports = userService;
