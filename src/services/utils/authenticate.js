@@ -9,6 +9,7 @@ const configJWT = {
 const createCredentials = (email) => {
   const userEmail = { email };
   const token = jwt.sign(userEmail, secretKey, configJWT);
+  // console.log(token);
   return token;
 };
 
